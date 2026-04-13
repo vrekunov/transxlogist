@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | TransLogix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-orange: #ff8c00; --dark-bg: #0f0f0f; }
+        body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; }
+        .navbar { background-color: var(--dark-bg); border-bottom: 3px solid var(--primary-orange); }
+        .nav-link { color: white !important; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-orange) !important; }
+        
+        .contact-header { background: var(--dark-bg); padding: 50px 0; color: white; text-align: center; border-bottom: 5px solid var(--primary-orange); }
+        .calc-box { background: white; padding: 30px; border-radius: 10px; border-left: 5px solid var(--primary-orange); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-orange { background-color: var(--primary-orange); color: white; border: none; font-weight: bold; }
+        .btn-orange:hover { background-color: #e67e00; color: white; }
+        .text-warning { color: var(--primary-orange) !important; }
+
+        footer { background-color: var(--dark-bg); color: #fff; padding: 60px 0 20px; border-top: 3px solid var(--primary-orange); }
+        footer p, footer .text-muted { color: #bbbbbb !important; }
+        footer ul li a { color: #bbbbbb !important; text-decoration: none; transition: 0.3s; }
+        footer ul li a:hover { color: var(--primary-orange) !important; padding-left: 5px; }
+        .social-icon { width: 35px; height: 35px; background: #222; color: white; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; transition: 0.3s; border: 1px solid #444; }
+        .social-icon:hover { background: var(--primary-orange); transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid #222; padding-top: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span style="color: var(--primary-orange);">TRANS</span>LOGIX</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Послуги</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-header">
+        <div class="container">
+            <h1>Зв'яжіться з нами</h1>
+            <p class="lead">Ми завжди відкриті до нових партнерств</p>
+        </div>
+    </div>
+
+    <main class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="calc-box">
+                    <h3><i class="fas fa-calculator text-warning me-2"></i>Калькулятор ціни</h3>
+                    <div class="my-4 text-start">
+                        <label class="form-label">Відстань (км)</label>
+                        <input type="number" id="distance" class="form-control mb-3" placeholder="Введіть дистанцію...">
+                        
+                        <label class="form-label">Тип автомобіля</label>
+                        <select id="weight" class="form-select mb-4">
+                            <option value="18">Мікроавтобус (до 2.5 т) - 18 грн/км</option>
+                            <option value="32">Вантажівка (до 10 т) - 32 грн/км</option>
+                            <option value="45">Єврофура (до 22 т) - 45 грн/км</option>
+                        </select>
+                        
+                        <button class="btn btn-orange w-100 p-2" onclick="calculatePrice()">РОЗРАХУВАТИ</button>
+                        <div id="result" class="mt-4 text-center h4 fw-bold text-warning"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h4>Наші реквізити</h4>
+                <ul class="list-unstyled mt-4">
+                    <li class="mb-3"><i class="fas fa-map-marker-alt text-warning me-3"></i> м. Львів, вул. Пасічна, 87</li>
+                    <li class="mb-3"><i class="fas fa-phone-alt text-warning me-3"></i> +38 067 123 45 67</li>
+                    <li class="mb-3"><i class="fas fa-envelope text-warning me-3"></i> support@translogix.ua</li>
+                </ul>
+                <div class="mt-4 rounded shadow-sm overflow-hidden" style="height: 250px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.456!2d24.065!3d49.825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDQ5JzMwLjAiTiAyNMKwMDMnNTQuMCJF!5e0!3m2!1suk!2sua!4v1620000000000!5m2!1suk!2sua" width="100%" height="100%" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-start">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-4 text-white"><span style="color: var(--primary-orange);">TRANS</span>LOGIX</h5>
+                    <p>Професійна логістика. Працюємо для вашого успіху 24/7.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-4 text-white">Меню</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="services.html">Послуги</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 text-white">Контакти</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt text-warning me-2"></i> м. Львів, вул. Пасічна, 87</p>
+                    <p class="mb-2"><i class="fas fa-phone-alt text-warning me-2"></i> +380 67 123 45 67</p>
+                    <p><i class="fas fa-envelope text-warning me-2"></i> support@translogix.ua</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 text-white">Новини</h5>
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark border-secondary text-white" placeholder="Email">
+                        <button class="btn btn-orange text-white">OK</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="small text-muted mb-0">© 2026 Всі права захищені</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const dist = parseFloat(document.getElementById('distance').value);
+            const pricePerKm = parseFloat(document.getElementById('weight').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(dist) || dist <= 0) {
+                resultDiv.innerHTML = '<small class="text-danger">Введіть число!</small>';
+                return;
+            }
+
+            const total = dist * pricePerKm;
+            resultDiv.innerHTML = `Сума: ${total.toLocaleString()} грн`;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
